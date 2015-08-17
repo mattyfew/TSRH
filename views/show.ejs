@@ -1,0 +1,127 @@
+<% include top.ejs %>
+
+	<div id="container">
+
+		<div id="container-inner" class="row">
+			<div class="small-12 columns">
+				<!--  NAV row   -->
+				<div class="row">
+					<div class="contain-to-grid sticky small-12 columns">
+
+						<!--    NAVIGATION BAR   -->
+						<nav class="top-bar" role=>
+							<ul class="title-area">
+								<li class="name">
+									<h1><a href="/">TSRH</a></h1>
+								</li>
+								<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+							</ul>
+							<section class="top-bar-section">
+								<!-- Left Nav Section -->
+								<ul class="left">
+									<li><a href="#">Popular Topics</a></li>
+									<li class="divider"></li>
+									<li class="has-form"><a class="button alert" href="/tsrh/new">Submit New</a></li>
+								</ul>
+
+								<!-- Right Nav Section -->
+								<ul class="right">
+									<li><a href="#">User Info(2)</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Logout</a></li>
+								</ul>
+							</section>
+						</nav>
+					</div>
+				</div>
+
+				<!-- EJS GOES HERE FOR to SHOW thread -->
+
+				<div id="show-thread" class="row">
+					<% thread.forEach(function(thisThread){ %>
+					
+						<!-- Icon column  -->
+						<div class="small-12 medium-1 columns">
+							<img class="top-icon top-left-icon" src="<%= thisThread.topic_img_url %>" alt="diamond" />
+							
+						<!--	Upvotes column -->
+
+						
+						
+							<div class="row">
+								<div class="small-12 columns">
+									<form action="/tsrh/<%= thisThread.id %>/upvote" method="POST">
+										<input type="hidden" name="upvote-icon-index" value="<%= thisThread.id %>">
+										<input class="upvote-icon vote" type="image" src="/img/upvoteIcon.png">
+									</form>
+									<p class="upvote-number"><%= thisThread.total_upvotes %></p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Title  -->
+						<div class="small-12 medium-10 columns">
+							<h1 id="show-title"><%= thisThread.title %></h1>
+						</div>
+						
+						<!--  Author  -->
+						<div class="small-12 medium-1 columns">
+							<aside id="author-in-show">By:
+								<span><%= thisThread.username %></span>
+							</aside>
+						</div>
+				</div>
+
+				<div class="row">
+					<br>
+					<div class="small-12 medium-10 medium-centered columns">
+							<p id="thread-content" >
+								<%= thisThread.content %>
+							</p>
+					</div>
+				</div>
+				
+			<!--	ENTER COMMENTS HERE-->
+			<hr>
+				<form action="/tsrh/<%= thisThread.id %>" method="POST">
+					<div class="row">
+						<div class="small-12 columns">
+							<h3 id="comment-header" class="left">Leave a Comment</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 medium-4 columns">
+							<label for="Comment Author">Comment Author
+								<input type="text" name="comment_author_name" placeholder="Author Name">
+							</label>
+						</div>
+						<div class="small-12 medium-8 columns">
+							<label for="comment content">Comment
+								<textarea rows= "3" type="text" name="comment_content_name" placeholder="write your comment here"></textarea>
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-11 small-centered columns">
+							<button class="alert small right">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--		LIST COMMENTS BELOW		-->
+		<% cmmnts.forEach(function(comment){ %>		
+			<hr>
+				<div class="row">
+					<div class="small-9 small-centered columns">
+						<h6><%= comment.comment_author_id%></h6>
+						<p><%= comment.content %></p>
+					</div>
+				</div>	
+		<%	})	%>
+				<% }) %> <!--  ends the forEach loop   -->
+			</div>
+		</div>
+		<!--  ^ closed row   -->
+	</div>
+
+	<% include bottom.ejs %>

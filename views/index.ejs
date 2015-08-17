@@ -1,0 +1,80 @@
+<% include top.ejs %>
+	<div id="container">
+
+		<div id="container-inner" class="row">
+			<div class="small-12 columns">
+				<div class="row">
+					<div class="contain-to-grid sticky small-12 columns">
+
+						<!--    NAVIGATION BAR   -->
+						<nav class="top-bar">
+							<ul class="title-area">
+								<li class="name">
+									<h1><a href="/">TSRH</a></h1>
+								</li>
+								<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+							</ul>
+							<section class="top-bar-section">
+								<!-- Left Nav Section -->
+								<ul class="left">
+									<li><a href="#">Popular Topics</a></li>
+									<li class="divider"></li>
+									<li class="has-form"><a class="button alert" href="/tsrh/new">Submit New</a></li>
+								</ul>
+
+								<!-- Right Nav Section -->
+								<ul class="right">
+									<li><a href="#">User Info(2)</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Logout</a></li>
+								</ul>
+							</section>
+						</nav>
+					</div>
+				</div>
+
+				<!-- EJS GOES HERE FOR THREADS -->
+				<% threads.forEach(function(thisThread){ %>
+
+					<div class="row thread">
+						<!-- Icon column  -->
+						<div class="medium-1 columns">
+							<img class="thread-icon" src="<%= thisThread.topic_img_url %>" alt="thread icon" />
+							<div class="row">
+								<div class="small-12 columns upvote-wrapper">	
+									<form action="/tsrh/<%= thisThread.id %>/upvote" method="POST">
+										<input type="hidden" name="upvote-icon-index" value="<%= thisThread.id %>">
+										<input class="upvote-icon vote" type="image" src="/img/upvoteIcon.png">
+									</form>
+									<p class="upvote-number"><%= thisThread.total_upvotes %></p>
+								</div>
+							</div>
+						</div>
+						<!-- Thread  -->
+						<div class="small-12 medium-8 columns">
+								<h5 id="index-thread-title"><a href="/tsrh/<%= thisThread.id %>"><%= thisThread.title %></a></h5>
+							<h6 id="index-thread-subtitle"><%= thisThread.subtitle %></h6>
+							<p class="thread-text">
+								<% if (thisThread.content.length > 100) %>
+									<% {thisThread.content = thisThread.content.substring(0,90) + '...'; %>
+										<%= thisThread.content %>
+											<% } %>
+							</p>
+						</div>
+						<!--	Author	-->
+						<div class="small-12 medium-3 columns">
+							<div class="row">
+								<div class="small-12 columns">
+									<p id="author-in-index">By: <span><%= thisThread.username %></span></p>
+								</div>
+							</div>
+						</div>
+				</div> <!--closes thread div-->
+
+				<%	}) %>
+
+			</div>
+		</div>
+	</div>
+
+	<%  include bottom.ejs %>

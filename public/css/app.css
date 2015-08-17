@@ -1,0 +1,152 @@
+header {
+  margin: auto;
+  text-align: center;
+}
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+#title {
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: underline;
+  font-size: 4em
+}
+a:link,
+a:visited{
+	color: #333;
+	text-decoration: underline;
+}
+a:hover,
+a:active{
+	color: #666;
+}
+a.button{
+	text-decoration: none;
+}
+.title-area .name a{
+	font-weight: 700;
+	text-decoration: none;
+}
+
+#show-title {
+	font-family: 'Open Sans', sans-serif;
+	text-decoration: underline;
+	font-weight: 800;
+	font-size: 1.9em
+}
+
+#top-row {}
+
+#container-inner {
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#top-right-wrapper {
+  float: left;
+}
+#container {
+  background-color: white;
+}
+#show-thread{
+	border-bottom: 5px solid gray;
+	margin: 0 0 5px 0;
+	padding: 10px;
+}
+#thread-content{
+	text-align: justify;
+	text-justify: inter-word;
+	text-indent: 50px
+}
+#index-thread-title{
+	text-decoration: underline;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800
+}
+#index-thread-subtitle{
+	font-style: italic; 
+	color: gray
+}
+
+#author-in-index span {
+	color: green;
+	font-size: 0.9em;
+	font-weight: 700;
+}
+#author-in-show span {
+	color:green;
+	font-size: 0.9em;
+	font-weight: 700
+}
+#comment-header{
+	text-align: center;
+	font-weight: 600
+}
+.top-icon {
+  max-height: 70px;
+}
+.top-right-icon {
+  float: right;
+}
+.top-left-icon {
+  float: left;
+}
+.thread {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin: 0 0 5px 0;
+  padding: 10px;
+  background-color: white
+}
+.thread-icon {
+	margin-bottom: 10px;
+}
+
+.header-side {
+  text-align: center;
+}
+.spacer {
+  border-right: 1px solid white;
+}
+
+/* upvotes */
+.upvote-wrapper{
+	margin: auto;
+}
+button.button .upvote-icon{
+	
+}
+.upvote-icon{
+	max-height: 12px;
+	float:left;
+	margin-top: 7px;
+	margin-right: 7px;
+}
+.vote {
+	overflow: hidden;
+	cursor: pointer;
+} 
+.vote.on {
+	visibility: hidden;
+}
+
+/*inputs in /tsrh/new */
+#thread-new-left {
+	height: 53px;
+}
+#thread-new-right {
+  height: 53px;
+}
+#thread-input-name {
+  height: 53px;
+}
+.input-top {
+  padding: 25px 25px 5px 25px;
+}
+.dd-selected-image {
+  max-height: 31px;
+}
+footer {
+  background-color: white;
+}
+.signature {
+	max-height: 60px;
+}
