@@ -1,6 +1,6 @@
 var ddData = [
 	{
-		text: "Fight the Power",
+		text: "The Rebel Alliance",
 		value: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Rebel_Alliance_logo.svg/2000px-Rebel_Alliance_logo.svg.png",
 		selected: false,
 		description: "Discussions related to government, mass media, basically anything Snowden",
